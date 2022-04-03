@@ -2,14 +2,19 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func calculateSide(length1, length2, angle float64) float64 {
-
-	//Insert the code here
+	var length1Square = math.Pow(length1, 2)
+	length2Square := math.Pow(length2, 2)
+	// formula: a2 = b2 + c2 - 2bc cos A
+	length3Square := length1Square + length2Square - 2*length1*length2*math.Cos(angle)
+	length3 := math.Sqrt(length3Square)
 
 	//Do not remove this line
 	fmt.Println("The 3rd length of the triange is", length3)
+	fmt.Printf("The 3rd length of the triange is %.2f", length3)
 	return length3
 }
 
